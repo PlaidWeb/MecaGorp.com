@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+.sessionkey
+index.db
+.DS_Store
+search/

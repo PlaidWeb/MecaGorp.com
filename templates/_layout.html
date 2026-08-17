@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%- block title -%}<title>
+        {{ category.name(markup=False) or "MecaGorp"}}
+        {%- if view.tags -%}
+            , tagged {{','.join(view.tags)}}
+        {%- endif -%}
+        {%- if not view.is_current and view.range %} | {{ view.range }}{% endif %}
+    </title>{%- endblock -%}
+
+    {%- block metatags -%}
+        {%- if category.description -%}
+            <meta name="description" content="{{category.description(markup=False)}}">
+        {%- endif -%}
+    {%- endblock -%}
+
+    {%- block stylesheet -%}
+    <link rel="stylesheet" href="{{static('style.css')}}">
+    {%- endblock -%}
+
+
+    {%- if category.parent -%}
+        <link rel="up" href="{{category.parent.link(template=template)}}">
+    {%- endif -%}
+
+    {% block header_links %}
+    <link rel="alternate" type="application/atom+xml" title="Atom feed" href="{{category.link(template='feed')}}">
+    {% endblock %}
+
+    {% block opengraph %}
+    <meta property="og:title" content="{{category.name}}">
+    {% if category.description %}
+    <meta property="og:description" content="{{category.description(markup=False)}}">
+    {% endif %}
+    <meta property="og:site_name" content="MecaGorp">
+    <meta property="og:type" content="webpage">
+
+    <meta property="fediverse:creator" content="@fluffy@plush.city">
+    {% endblock %}
+
+    {% block scripts %}
+    <script src="{{static('toggle.js')}}"></script>
+    <script src="{{static('datetime.js')}}"></script>
+    {% endblock %}
+
+    {% block analytics %}
+        <script data-goatcounter="https://mecagorp.goatcounter.com/count"
+                async src="//gc.zgo.at/count.js"></script>
+    {% endblock %}
+
+    <link rel="webmention" href="https://webmention.io/beesbuzz.biz/webmention">
+</head>
+
+<body id="{{template.name}}">
+    {% block header %}
+    <header>
+        {% block header_title %}
+        <h1 class="breadcrumb">
+            {% for cat in category.breadcrumb[:-1] %}
+            <span class="cat"><a href="{{cat.link}}">{{cat.name}}</a></span>
+            {% endfor %}
+            <span class="here"><a href="{{category.link}}">{{category.name}}</a></span>
+        </h1>
+
+        {%- if category.description -%}
+        {{category.description}}
+        {%- endif -%}
+        {% endblock %}
+    </header>{%- endblock -%}
+
+    {% block sidebar %}
+    <nav id="sidebar">
+
+        {% block sidebar_content %}
+            {% for label,entry_type in (("Information", "sidebar"), ("Links", "links")) %}
+            {% set group = get_view(category=category,entry_type=entry_type,order='title') %}
+            {% if group.entries %}
+            <section>
+            <h2>{{label}}</h2>
+            <ul>
+                {%- for entry in group.entries -%}
+                <li>
+                    <a {% if entry['rel'] %}rel="{{entry.rel}}"{% endif %} href="{{entry.permalink if entry['use-permalink'] else entry.link}}">{{entry.title}}</a>{% if entry.summary %}: {{entry.summary|strip_html}}{% endif %}
+                </li>
+                {%- endfor -%}
+            </ul></section>
+            {% endif %}
+        {% endfor %}
+
+        {% endblock %}
+
+        {% block tag_browser %}
+
+        {% endblock %}
+
+        {% block spec_browser %}
+            {% set specs=get_view(category=category,entry_type='spec') %}
+            {% if specs.entries %}
+                <section>
+                <h2>Specifications</h2>
+                <ul>
+                {% for group,entries in specs|groupby("group") %}
+                    <li>{{ group }}:
+                    <ul>
+                        {% for entry in entries %}
+                            <li><a href="{{ entry.link }}" title="{{ entry.title }}">{{ entry.version }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    </li>
+                {% endfor %}
+                </ul>
+                </section>
+            {% endif %}
+        {% endblock %}
+
+        {% block sidebar_footer %}
+        {% endblock %}
+    </nav>
+    {% endblock %}
+
+    {% block categories %}
+        {% if category.subcats %}
+    <nav id="categories">
+        <ul>
+            {% for subcat in category.subcats %}
+            {% if not subcat.hidden %}
+            <li {%-if category == subcat%} class="here"{%endif%}><a href="{{subcat.link}}">{{subcat.get('short-name', subcat.name)}}</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+    {% endif %}
+    {% endblock %}
+
+    <main>
+    {% block content %}
+        content goes here
+    {% endblock %}
+    </main>
+
+    <footer>
+    </footer>
+
+</main></body>

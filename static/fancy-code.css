@@ -1,0 +1,96 @@
+/* Separated CSS for the fancy code blocks on this site.
+
+This reformats fenced-code blocks into tables with CSS-generated line numbers on each line. */
+
+@import url('pygments.default.css');
+
+.blockcode {
+    background: #eee;
+    border: solid #ccc 1px;
+    border-radius: 1ex;
+    margin-bottom: 1em;
+    overflow: hidden;
+
+    figcaption {
+        font-size: small;
+        color: #77f;
+        font-style: italic;
+        border-bottom: solid #777 1px;
+        padding: 0.5ex 1ex;
+        background: #fff7f7;
+    }
+}
+
+pre {
+    white-space: pre-wrap;
+    display: table;
+
+    &.highlight {
+        counter-reset: codeline;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .line {
+        display: table-row;
+
+        &:first-child .line-content {
+            padding-top: 0.5em;
+        }
+
+        &:last-child .line-content {
+            padding-bottom: 0.5em;
+        }
+    }
+
+    .line-content {
+        display: table-cell;
+    }
+}
+
+code,
+pre {
+    font-family:
+        "Andale Mono", "Liberation Mono", "Monaco", "Lucida Console", monospace;
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+}
+
+code {
+    background: #fff7f7;
+    color: black;
+    padding: 0 2px;
+}
+
+.line-content {
+    padding: 0 1ex;
+    width: 100%;
+
+    .highlight & {
+        border-left: solid #999 1px;
+    }
+}
+
+.highlight .line {
+    display: table-row;
+    counter-increment: codeline;
+}
+
+.highlight .line-number:hover {
+    background: rgba(255, 255, 0, 0.5);
+}
+
+.highlight .line-number::before {
+    display: table-cell;
+    content: counter(codeline);
+    font-size: small;
+    font-family:
+        "Trebuchet MS", "Verdana", "Liberation Sans", "Helvetica", "Arial",
+        sans-serif;
+    min-width: 2em;
+    text-align: right;
+    padding: 0 0.5ex;
+    color: #999;
+    vertical-align: baseline;
+}

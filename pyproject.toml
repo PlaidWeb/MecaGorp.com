@@ -1,0 +1,24 @@
+[project]
+name = "mecagorp-com"
+version = "0.1.0"
+description = "The website for mecagorp.com"
+authors = [
+    {name = "fluffy",email = "fluffy@beesbuzz.biz"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<3.15"
+dependencies = [
+    "publ[auth,search] (>=0.8.14,<0.9.0)",
+    "flask-github-webhook (>=0.2.0,<0.3.0)",
+    "python-memcached (>=1.62,<2.0)",
+    "gunicorn (>=26.0.0,<27.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "mecagorp"}]
+package-mode = false
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

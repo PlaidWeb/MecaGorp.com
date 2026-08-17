@@ -1,0 +1,178 @@
+@import url('fancy-code.css');
+@import url('fonts/Jost/Jost.css');
+
+@media (prefers-reduced-motion) {
+    * {
+        transition: none !important;
+    }
+}
+
+:root {
+    color-scheme: light dark;
+}
+
+
+html {
+    font-family: sans-serif;
+
+    color: light-dark(black, white);
+    background: light-dark(white, #333);
+
+    font-family: "Helvetica Neue", "Liberation Sans", Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Futura", "Jost", "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+blockquote {
+    border: dashed light-dark(#333,#ccc) 1px;
+    padding: 1ex 1em;
+    font-style: italic;
+    background: light-dark(#eee,#222);
+}
+
+body {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "categories categories"
+        "content sidebar"
+        "footer footer"
+    ;
+    grid-template-columns: 1fr calc(max(25%, 10em));
+    grid-template-rows: min-content min-content 1fr min-content;
+    background: white;
+    margin: 1ex auto;
+    min-height: calc(100vh - 3ex);
+    max-width: 1280px;
+}
+
+a[href] {
+    color: #09c;
+
+    &::visited {
+        color: #079;
+    }
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+main {
+    grid-area: content;
+    max-width: 100vw;
+    padding-right: 1em;
+
+    .posted {
+        font-size: small;
+        font-weight: light;
+        font-style: italic;
+    }
+
+    ul.tags {
+        list-style-type: none;
+        display: inline;
+        margin: 0;
+        padding: 0;
+
+
+        li {
+            display: inline;
+            margin: 0 1em;
+            padding: 0;
+
+            &::before {
+                content: '#';
+            }
+        }
+    }
+}
+
+#categories {
+    grid-area: categories;
+    text-align: center;
+
+    margin: 1em 0;
+
+    ul {
+        display: flex;
+        width: 100%;
+        overflow: auto;
+        list-style-type: none;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: block;
+            margin: 0 1em;
+            border-radius: 1ex;
+            padding: 0;
+            font-family: "Futura", "Jost", "Helvetica Neue", sans-serif;
+            font-weight: 500;
+            text-align: center;
+            overflow: hidden;
+            background: #ccf;
+
+            &.home,
+            &.home.here {
+                flex-grow: 0;
+                background: #335;
+                color: white;
+                a { color: white; }
+            }
+
+            &.here {
+                color: black;
+                background: #ccf;
+                font-weight: 650;
+
+            }
+
+            a {
+                color: black;
+                text-decoration: none;
+                display: block;
+                width: calc(100% - 2em);
+                padding: 1em;
+                transition: background-color 0.25s ease;
+
+                &:hover {
+                    background: rgba(192,192,192,0.5);
+                }
+            }
+        }
+    }
+}
+
+#sidebar {
+    grid-area: sidebar;
+
+    section {
+        margin-bottom: 1em;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        li {
+            margin: 0 0 0 1em;
+            padding: 0;
+        }
+    }
+}
+
+footer {
+    grid-area: footer;
+}
