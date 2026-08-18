@@ -1,10 +1,10 @@
 Title: Frequently Asked Questions
 Sort-Title: @faq
-Entry-Type: sidebar
 Date: 2026-08-17 14:18:45-07:00
 UUID: b49b1622-d11d-4196-9c8a-f763a3dd4ebe
 Entry-ID: 10
-Summary: --
+
+Answers to some of the questions people have about this project.
 
 .....
 

@@ -1,9 +1,10 @@
 Title: About Chorus
+Sort-Title: @about
 Date: 2026-08-17 14:38:47-07:00
 UUID: bbce7acc-9459-492b-80c7-61f22c8794f3
 Entry-ID: 1
 
-Chorus is a lightweight syndication format for federated music discovery and streaming in a platform- and distribution-agnostic manner.
+Chorus is a lightweight format for publishing music for streaming in a platform- and distribution-agnostic manner.
 
 ### Rationale
 
@@ -12,6 +13,18 @@ Music discovery, consumption, and streaming are locked down by large corporation
 There are several disparate attempts to build a better world for musicians, but many of them are built on protocols that were not designed for this use case in mind. ActivityPub and RSS were simply not designed with the specific needs of distribution and discovery of musical content, and most of the existing attempts are built on top of those.
 
 The Chorus format is a lightweight, web-native protocol that enables an ecosystem of independent music streaming, directly connecting musicians with listeners and removing the entrenched music industry from the equation. This allows us to build a better future for independent music on the Internet while reducing the headache for musicians.
+
+.....
+
+### Major components
+
+The pieces of the puzzle to fit together are:
+
+* Publisher: someone providing music to the network. This can be a band, a record label, a distributor, basically anyone with a web presence. They provide their streamable catalog in [Chorus format](/chorus/latest).
+
+* Receiver: something that receives music from the network and makes it available to listeners; it can be further divided into:
+    * Collection: a bunch of music
+    * Player: an application that can play the music in the collection
 
 ### Who's involved?
 

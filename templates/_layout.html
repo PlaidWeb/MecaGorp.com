@@ -42,7 +42,6 @@
 
     {% block scripts %}
     <script src="{{static('toggle.js')}}"></script>
-    <script src="{{static('datetime.js')}}"></script>
     {% endblock %}
 
     {% block analytics %}
@@ -125,11 +124,15 @@
     {% block categories %}
     <nav id="categories">
         <ul>
-            <li class="home{{ ' here' if category == category.root else ''}}"><a href="/">(home)</a></li>
+            {% if category != category.root %}
+                <li class="home"><a href="/">(home)</a></li>
+            {% endif %}
 
             {% for subcat in category.root.subcats %}
             {% if not subcat.hidden %}
-            <li {%-if category == subcat%} class="here"{%endif%}><a href="{{subcat.link}}">{{subcat.get('short-name', subcat.name)}}</a></li>
+            <li {%-if category == subcat%} class="here"{%endif%}>
+                <a title="{{subcat.description(markup=False)}}" href="{{subcat.link}}">{{subcat.get('short-name', subcat.name)}}</a>
+            </li>
             {% endif %}
             {% endfor %}
         </ul>

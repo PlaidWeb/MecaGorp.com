@@ -1,7 +1,7 @@
 {% extends '_layout.html' %}
 
 {% block content %}
-    {% for entry in view(entry_type_not=('link','sidebar','spec')).entries %}
+    {% for entry in view(entry_type_not=('link','sidebar','spec'),order='title').entries %}
         <article>
             <h2>{{ entry.title }}</h2>
             {{ entry.body }}

@@ -101,8 +101,7 @@ main {
     text-align: center;
 
     margin: 1em 0;
-
-    padding-bottom: 1ex;
+    padding-bottom: 1em;
     border-bottom: dotted #777 1px;
 
     ul {
@@ -171,7 +170,45 @@ main {
         li {
             margin: 0 0 0 1em;
             padding: 0;
+            text-indent: 1em hanging;
         }
+    }
+
+    ul.tags {
+        li.clear::before {
+            content: '☒\00a0';
+        }
+
+        li.checked::before {
+            content: '☑︎\00a0';
+        }
+
+        li::before {
+            content: '☐\00a0';
+        }
+    }
+
+    .disclosure+.tags li.disclosure-toggle::before {
+        content: '[';
+        font-style: normal;
+        color: rgba(0, 0, 0, 0.5);
+        text-decoration: none;
+    }
+
+    .disclosure+.tags li.disclosure-toggle::after {
+        content: ']';
+        font-style: normal;
+        color: rgba(0, 0, 0, 0.5);
+        text-decoration: none;
+    }
+
+    .tags li.disclosure-toggle button {
+        font-style: italic;
+        text-decoration: underline;
+        color: #900;
+        border: none;
+        padding: 0;
+        margin: 0;
     }
 }
 

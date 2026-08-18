@@ -25,7 +25,16 @@
         {% endif %}
     </section>
 
-    {{ entry.body }}
-    {{ entry.more }}
+    {% if entry.body %}
+        <section id="intro">
+            {{ entry.body }}
+        </section>
+    {% endif %}
+
+    {% if entry.more %}
+        <section id="readmore">
+            {{ entry.more }}
+        </section>
+    {% endif %}
 
 {% endblock %}
