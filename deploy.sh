@@ -23,14 +23,14 @@ if git diff --name-only $PREV | grep -q poetry.lock ; then
 fi
 
 if [ "$1" != "nokill" ] && [ ! -z "$disposition" ] ; then
-    systemctl --user $disposition novembeat.com
+    systemctl --user $disposition megacorp.com
 fi
 
 echo "Updating the content index..."
 poetry run flask publ reindex
 
 count=0
-while [ $count -lt 5 ] && [ ! -S $HOME/.vhosts/novembeat.com ] ; do
+while [ $count -lt 5 ] && [ ! -S $HOME/.vhosts/mecagorp.com ] ; do
     count=$(($count + 1))
     echo "Waiting for service to restart... ($count)"
     sleep $count
@@ -38,6 +38,6 @@ done
 
 echo "Sending push notifications"
 poetry run pushl -rvvkc $HOME/var/pushl \
-    https://novembeat.com/feed \
-    http://novembeat.com/feed
+    https://mecagorp.com/feed \
+    http://mecagorp.com/feed
 
