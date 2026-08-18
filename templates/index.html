@@ -15,7 +15,7 @@
 
 {% block tag_browser %}
 {% if not user.is_bot %}
-{% set tags = category.tags(tag=view.spec.tag if view.spec.tag else None,tag_filter='ALL')|rejectattr('count','equalto',0)|sort(attribute='count',reverse=True) %}
+{% set tags = category.tags(tag=view.spec.tag if view.spec.tag else None,tag_filter='ALL')|rejectattr('count','equalto',1)|sort(attribute='count',reverse=True) %}
 {% if tags|length > 1 or view.tags %}
 <div><h2 id="tags">Tags</h2>
 
