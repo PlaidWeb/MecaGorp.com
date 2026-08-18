@@ -58,7 +58,7 @@
         {% block header_title %}
         <h1 class="breadcrumb">
             {% for cat in category.breadcrumb[:-1] %}
-            <span class="cat"><a href="{{cat.link}}">{{cat.name}}</a></span>
+            <span class="cat"><a href="{{cat.link}}">{{cat.name}}</a>:</span>
             {% endfor %}
             <span class="here"><a href="{{category.link}}">{{category.name}}</a></span>
         </h1>

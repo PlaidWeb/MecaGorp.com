@@ -17,8 +17,15 @@ html {
 
     color: light-dark(black, white);
     background: light-dark(#eee, #333);
-#
+
     font-family: "Helvetica Neue", "Liberation Sans", Helvetica, sans-serif;
+}
+
+*:target {
+    background: light-dark(#ffc, #330);
+    padding: 8px;
+    margin: -8px;
+    border-radius: 8px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -29,6 +36,27 @@ h1, h2, h3, h4, h5, h6 {
     a {
         text-decoration: none;
     }
+
+    a.toc-link::after {
+        margin-left: 1ex;
+        margin-top: .45em;
+        font-size: 75%;
+        display: inline-block;
+        content: '#';
+        opacity: 20%;
+        text-decoration: none;
+        transition: opacity 0.25s ease;
+    }
+
+    &:hover a.toc-link::after {
+        opacity: 100%;
+    }
+}
+
+.readmore {
+    font-size: small;
+    font-weight: light;
+    font-style: italic;
 }
 
 blockquote {
@@ -57,16 +85,17 @@ body {
 }
 
 a[href] {
-    color: #09c;
+    color: light-dark(#09c, #0cf);
 
     &::visited {
-        color: #079;
+        color: light-dark(#079, #09c);
     }
 }
 
 header {
     grid-area: header;
     text-align: center;
+    h1 { color: #777; }
 }
 
 main {
@@ -235,4 +264,14 @@ footer {
 
 article {
     margin-bottom: 1em;
+
+    nav.toc {
+        float: right;
+        font-size: small;
+        padding: 1ex;
+        margin: 0 0 1em 1em;
+        border: solid light-dark(black, white) 1px;
+        border-radius: 1ex;
+        background: light-dark(#eee, #222);
+    }
 }

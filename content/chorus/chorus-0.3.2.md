@@ -3,11 +3,12 @@ Version: v0.3.2
 Path-Alias: /chorus/latest
 Path-Canonical: /chorus/0.3.2
 Tag: chorus
-Group: publish
+Group: Protocol
 entry-type: spec
 Date: 2026-08-15 12:02:04-07:00
 UUID: 329a1faf-59fe-456d-a632-83e922656fca
 Entry-ID: 5
+Show-Toc: 1
 
 A Chorus collection is formatted as structured data, provided in a commonly-parseable format that provides nested key-value pairs and arrays of data. Every hierarchical layer represents a single entity, which may contain other entities.
 

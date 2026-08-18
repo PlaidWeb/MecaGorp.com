@@ -3,6 +3,7 @@ Sort-Title: @about
 Date: 2026-08-17 14:38:47-07:00
 UUID: bbce7acc-9459-492b-80c7-61f22c8794f3
 Entry-ID: 1
+Path-Canonical: /chorus/about
 
 Chorus is a lightweight format for publishing music for streaming in a platform- and distribution-agnostic manner.
 

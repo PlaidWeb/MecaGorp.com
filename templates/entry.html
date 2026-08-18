@@ -3,6 +3,7 @@
 {% block title %}<title>{{category.name}}: {{ entry.title }}</title>{% endblock %}
 
 {% block content %}
+    <article class="h-article">
     <h2>{{ entry.title }}</h2>
     <section class="posted">
         <data class="p-uid" data="{{entry.uuid}}"></data>
@@ -31,10 +32,20 @@
         </section>
     {% endif %}
 
+    {%- block toc -%}
+    {% if entry.get('show-toc') %}
+    <nav class="toc">
+        <details><summary>Table of Contents</summary>
+        {{entry.toc(max_depth=entry.get('TOC-max-depth',2)|int)}}
+    </details>
+    </nav>
+    {% endif %}
+    {%- endblock -%}
+
     {% if entry.more %}
         <section id="readmore">
             {{ entry.more }}
         </section>
     {% endif %}
-
+    </article>
 {% endblock %}

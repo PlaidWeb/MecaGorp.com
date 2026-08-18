@@ -70,6 +70,20 @@ config = {
     'auth_log_prune_age': 86400 * 90,
 
     'search_index': 'search',
+
+    'layout': {
+        'max_width': 960,
+        'max_height': 960,
+        'fullsize_width': 3840,
+        'fullsize_height': 2160,
+        'fullsize_quality': 35,
+        'resize': 'fit',
+        'figure': 'images',
+        'heading_template': '{text}{link}</a>',
+        'heading_link_class': 'toc-link',
+        'img_class': 'u-photo',
+        'quality': 50
+    },
 }
 
 if not os.path.isfile('.sessionkey'):
