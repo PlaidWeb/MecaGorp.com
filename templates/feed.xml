@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-{%- set view = view(recurse=True,count=20,entry_type_not=["meta","placeholder","spec","link"] + (["sidebar"] if not request.args.push else []),is_attached=False) -%}
+{%- set view = view(recurse=True,count=20,entry_type_not=["meta","placeholder","link"] + (["sidebar"] if not request.args.push else []),is_attached=False) -%}
 
 <feed xmlns="http://www.w3.org/2005/Atom"
     xmlns:fh="http://purl.org/syndication/history/1.0"
     xmlns:at="http://purl.org/atompub/tombstones/1.0">
 
-    <title>{{"busybee: " ~ category.name(markup=False) if category.parent else category.name(markup=False)}}</title>
+    <title>{{"MecaGorp: " ~ category.name(markup=False) if category.parent else category.name(markup=False)}}</title>
     <subtitle><![CDATA[{{category.description(markup=False)}}]]></subtitle>
     <link href="{{ view.link(template='feed',absolute=True) }}" rel="self" />
     {% if not view.is_current %}
@@ -41,7 +41,12 @@
         <published>{{entry.date.isoformat()}}</published>
         <updated>{{entry.last_modified.isoformat()}}</updated>
         <id>urn:uuid:{{entry.uuid}}</id>
-        <author><name>{{ entry.author if entry.author else "fluffy" }}</name></author>
+        {% if entry.author or entry['author-url'] %}
+        <author>
+            {% if entry.author %}<name>{{ entry.author }}</name>{% endif %}
+            {% if entry['author-url'] %}<uri>{{ entry['author-url']}}</uri>{% endif %}
+        </author>
+        {% endif %}
         <summary type="html"><![CDATA[{{entry.summary}}]]></summary>
         <content type="html"><![CDATA[
 
@@ -49,8 +54,11 @@
 		<aside><i><mark>Note:</mark> This is a private entry, so please use discretion in linking to it or mentioning it publicly. Thanks!</i></aside>
 		{% endif %}
 
-            {%- include get_template('_feed_entry', entry) -%}
-            <p><a href="{{entry.link(absolute=True)}}#comments">comments</a></p>
+        {{entry.body}}
+        {{entry.more}}
+        {% if entry.footnotes %}
+        <hr/>{{entry.footnotes}}
+        {% endif %}
 
         {% for tag in entry.tags %}
         <a rel="tag" href="{{entry.archive(tag=tag,absolute=True)}}">#{{tag}}</a>
