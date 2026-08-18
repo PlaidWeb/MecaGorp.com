@@ -126,6 +126,14 @@ def keymaster(sid):
     return token.digest()
 
 
+@app.template_filter('hashtag')
+def make_hashtag(words: str):
+    words = words.replace("'", '')
+    words_list = re.split(r'[^a-zA-Z0-9]+', words)
+
+    return ''.join([w.title() if w.islower() else w for w in words_list])
+
+
 @app.before_request
 def antiscraper():
     """ Dissuade aggressive bots from pummeling the site """
