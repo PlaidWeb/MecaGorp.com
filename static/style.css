@@ -16,8 +16,8 @@ html {
     font-family: sans-serif;
 
     color: light-dark(black, white);
-    background: light-dark(white, #333);
-
+    background: light-dark(#eee, #333);
+#
     font-family: "Helvetica Neue", "Liberation Sans", Helvetica, sans-serif;
 }
 
@@ -48,10 +48,12 @@ body {
     ;
     grid-template-columns: 1fr calc(max(25%, 10em));
     grid-template-rows: min-content min-content 1fr min-content;
-    background: white;
-    margin: 3em auto 1ex;
+    background: light-dark(white, black);
+    margin: 2em auto 1ex;
+    padding-top: 1em;
     min-height: calc(100vh - 3em - 1ex);
     max-width: 1280px;
+    border-radius: 2em;
 }
 
 a[href] {
@@ -70,7 +72,7 @@ header {
 main {
     grid-area: content;
     max-width: 100vw;
-    padding-right: 1em;
+    padding: 0 1em;
 
     .posted {
         font-size: small;

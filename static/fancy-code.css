@@ -58,8 +58,8 @@ pre {
 }
 
 code {
-    background: #fff7f7;
-    color: black;
+    background: light-dark(#fff7f7, #023);
+    color: light-dark(black, #efe);
     padding: 0 2px;
 }
 
