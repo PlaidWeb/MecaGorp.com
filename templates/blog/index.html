@@ -1,0 +1,47 @@
+{% extends '/index.html' %}
+
+{% block content %}
+    {% for entry in view(entry_type_not=('link','sidebar','spec')).entries %}
+        <article class="h-entry">
+            <h2><a href="{{entry.link}}">{{ entry.title }}</a></h2>
+            <section class="posted">
+                <data class="p-uid" data="{{entry.uuid}}"></data>
+                Posted <time class="dt-published" datetime="{{entry.date.isoformat()}}">
+                    <span class="date">{{entry.date.format('MMMM D, YYYY')}}</span> at
+                    <span class="time">{{entry.date.format('hh:mm A Z')}}</span>
+                    <span class="ago">({{entry.date.humanize()}})</span>
+                </time>
+                {% if entry.author %}
+                    <span class="h-card">
+                    by {% if entry['author-url'] %}<a class="u-url" href="{{ entry['author-url'] }}">{% endif %}
+                        <span class="p-name">{{ entry.author }}</span>
+                    {% if entry['author-url'] %}</a>{% endif %}
+                    {% endif %}</span>
+                {% if entry.tags %}
+                <ul class="tags">
+                    {%- for tag in entry.tags -%}
+                    <li><a class="p-category" rel="tag" href="{{entry.archive(tag=tag)}}">{{tag}}</a></li>
+                    {%- endfor -%}
+                </ul>
+                {% endif %}
+            </section>
+
+            {{ entry.body }}
+
+            {% if entry.more %}
+                <nav class="more"><a href="{{ entry.link }}">Read more...</a></nav>
+            {% endif %}
+        </article>
+    {% endfor %}
+{% endblock %}
+
+{% block entry_browser %}
+    <section>
+    <h2>Recent Posts</h2>
+    <ul>
+        {% for entry in get_view(category=category,entry_type_not=('sidebar','link','spec'),count=10) %}
+            <li><a href="{{ entry.link }}">{{ entry.title }}</a> ({{ entry.date.humanize() }})</li>
+        {% endfor %}
+    </ul>
+    </section>
+{% endblock %}

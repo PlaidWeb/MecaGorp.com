@@ -74,7 +74,7 @@
     <nav id="sidebar">
 
         {% block sidebar_content %}
-            {% for label,entry_type in (("Information", "sidebar"), ("Links", "links")) %}
+            {% for label,entry_type in (("Information", "sidebar"), ("Links", "link")) %}
             {% set group = get_view(category=category,entry_type=entry_type,order='title') %}
             {% if group.entries %}
             <section>
@@ -91,8 +91,10 @@
 
         {% endblock %}
 
-        {% block tag_browser %}
+        {% block entry_browser %}
+        {% endblock %}
 
+        {% block tag_browser %}
         {% endblock %}
 
         {% block spec_browser %}
@@ -121,17 +123,17 @@
     {% endblock %}
 
     {% block categories %}
-        {% if category.subcats %}
     <nav id="categories">
         <ul>
-            {% for subcat in category.subcats %}
+            <li class="home{{ ' here' if category == category.root else ''}}"><a href="/">(home)</a></li>
+
+            {% for subcat in category.root.subcats %}
             {% if not subcat.hidden %}
             <li {%-if category == subcat%} class="here"{%endif%}><a href="{{subcat.link}}">{{subcat.get('short-name', subcat.name)}}</a></li>
             {% endif %}
             {% endfor %}
         </ul>
     </nav>
-    {% endif %}
     {% endblock %}
 
     <main>
@@ -141,6 +143,13 @@
     </main>
 
     <footer>
+        <nav>
+        <ul>
+            <li><a href="https://github.com/PlaidWeb/MecaGorp.com/">GitHub</a></li>
+            <li><a href="https://beesbuzz.biz/>">busybee</a></li>
+            <li><a href="https://funmusic.place/">Fun Music Place</a></li>
+        </ul>
+        </nav>
     </footer>
 
 </main></body>

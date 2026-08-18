@@ -1,0 +1,12 @@
+{% extends '/entry.html' %}
+
+        {% block entry_browser %}
+            <section>
+            <h2>Recent Posts</h2>
+            <ul>
+                {% for entry in get_view(category=category,entry_type_not=('sidebar','link','spec'),count=10) %}
+                    <li><a href="{{ entry.link }}">{{ entry.title }}</a> ({{ entry.date.humanize() }})</li>
+                {% endfor %}
+            </ul>
+            </section>
+        {% endblock %}

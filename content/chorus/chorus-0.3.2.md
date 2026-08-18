@@ -1,6 +1,6 @@
 Title: Chorus v0.3.2
 Version: v0.3.2
-Path-Alias: /chorus/spec
+Path-Alias: /chorus/latest
 Path-Canonical: /chorus/0.3.2
 Tag: chorus
 Group: publish

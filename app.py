@@ -1,13 +1,18 @@
 """ Main Publ application """
+# pylint:disable=import-outside-toplevel
 
 import logging
 import logging.handlers
 import os
 import os.path
 
+import arrow
 import authl.flask
+import flask
 import publ
+import werkzeug.exceptions
 from flask_github_webhook import GithubWebhook
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 if os.path.isfile('logging.conf'):
     logging.config.fileConfig('logging.conf')
@@ -83,8 +88,9 @@ hooks = GithubWebhook(app)
 
 @hooks.hook()
 def deploy(data):
-    import threading
+    """ Called when GitHub gets an update """
     import subprocess
+    import threading
 
     LOGGER.info("Got github hook with data: %s", data)
 
@@ -106,5 +112,89 @@ def deploy(data):
 
     return flask.Response(result, mimetype='text/plain')
 
-from werkzeug.middleware.proxy_fix import ProxyFix
+
+def keymaster(sid):
+    """ Generates a salted token for the browser """
+    import hashlib
+
+    parts = [
+        str(sid),
+        flask.request.remote_addr,
+        flask.request.headers.get('User-Agent')
+    ]
+    token = hashlib.md5('|'.join(parts).encode('utf-8'))
+    return token.digest()
+
+
+@app.before_request
+def antiscraper():
+    """ Dissuade aggressive bots from pummeling the site """
+
+    # Don't fire for login callbacks
+    if flask.request.path.startswith('/_cb/'):
+        return
+
+    if '&amp;' in flask.request.url:
+        raise werkzeug.exceptions.BadRequest(
+            "learn how HTML entities work, you stupid bot")
+
+    # Logged-in users have passed the test already
+    if publ.user.get_active():
+        return
+
+    if 'sid' in flask.request.args:
+        # definitely a URL that didn't come from here
+        raise werkzeug.exceptions.Unauthorized("y'all")
+
+    # Send possible crawlers to the login page
+    score = len(list(flask.request.args.items(True)))
+    if score > 1:
+        # Check for an existing sentience token
+        try:
+            sid, token = flask.session['vinz']
+            if (arrow.now().shift(hours=-1) < arrow.get(float(sid)) < arrow.now() and
+                    keymaster(sid) == token):
+                return
+        except (KeyError, ValueError, arrow.ParserError):
+            pass
+
+        raise werkzeug.exceptions.TooManyRequests("Sentience test")
+
+    # remove old cruft from the session
+    for key in ('sid', 'addr', 'ua'):
+        if key in flask.session:
+            flask.session.pop(key)
+
+    return
+
+
+@app.route('/_zuul', methods=['POST'])
+def gatekeeper():
+    """ Check the test response and set the salted token upon passing """
+
+    try:
+        sid = float(flask.request.form['sid'])
+        if arrow.get(sid) > arrow.now():
+            # Someone's trying to set a token that'll last longer
+            raise werkzeug.exceptions.BadRequest("Hello time traveler")
+        if arrow.get(sid) < arrow.now().shift(minutes=-5):
+            # Someone took a while to respond to the form
+            raise werkzeug.exceptions.TooManyRequests("Try again")
+    except ValueError as exc:
+        raise werkzeug.exceptions.BadRequest("Nice try") from exc
+
+    redir = flask.request.form['redir']
+    flask.session['vinz'] = sid, keymaster(sid)
+    return flask.redirect(f'{redir}', code=303)
+
+
+@app.after_request
+def add_webmention_endpoint(response):
+    """ publish webmention endpoint for everything, including error pages and resources """
+    response.headers.add(
+        'link', '<https://webmention.io/beesbuzz.biz/webmention>; rel="webmention"')
+
+    return response
+
+
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)

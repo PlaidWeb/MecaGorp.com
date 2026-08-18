@@ -25,6 +25,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Futura", "Jost", "Helvetica Neue", sans-serif;
     margin: 0;
     padding: 0;
+
+    a {
+        text-decoration: none;
+    }
 }
 
 blockquote {
@@ -45,8 +49,8 @@ body {
     grid-template-columns: 1fr calc(max(25%, 10em));
     grid-template-rows: min-content min-content 1fr min-content;
     background: white;
-    margin: 1ex auto;
-    min-height: calc(100vh - 3ex);
+    margin: 3em auto 1ex;
+    min-height: calc(100vh - 3em - 1ex);
     max-width: 1280px;
 }
 
@@ -61,10 +65,6 @@ a[href] {
 header {
     grid-area: header;
     text-align: center;
-
-    a {
-        text-decoration: none;
-    }
 }
 
 main {
@@ -84,10 +84,9 @@ main {
         margin: 0;
         padding: 0;
 
-
         li {
             display: inline;
-            margin: 0 1em;
+            margin: 0 0 0 1em;
             padding: 0;
 
             &::before {
@@ -102,6 +101,9 @@ main {
     text-align: center;
 
     margin: 1em 0;
+
+    padding-bottom: 1ex;
+    border-bottom: dotted #777 1px;
 
     ul {
         display: flex;
@@ -175,4 +177,23 @@ main {
 
 footer {
     grid-area: footer;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    li {
+        display: inline;
+        margin: 0 0 0 1ex;
+    }
+    li+li::before {
+        content: '•';
+        padding-right: 1ex;
+    }
+}
+
+article {
+    margin-bottom: 1em;
 }

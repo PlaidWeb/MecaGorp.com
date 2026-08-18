@@ -1,0 +1,32 @@
+{% extends '/_layout.html' %}
+
+{% block title %}
+<title>Sentience test</title>
+{% endblock %}
+
+{% block analytics %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+window.addEventListener("load", () => {
+    document.forms["proxy"].submit();
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<section id="content">
+<article>
+<h2>Sentience check</h2>
+
+<p>I'm gonna need you to click this button. Thank you for your understanding.</p>
+
+<div><form method="POST" id="proxy" action="{{url_for('gatekeeper')}}">
+    <input type="hidden" name="redir" value="{{request.full_path}}">
+    <input type="hidden" name="sid" value="{{arrow.now().format('X')}}">
+    <input type="submit" value="I'm really here!">
+</form></div>
+</article>
+</section>
+{% endblock %}

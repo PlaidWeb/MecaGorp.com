@@ -1,7 +1,7 @@
 {% extends '_layout.html' %}
 
 {% block content %}
-    {% for entry in view(entry_type_not=('links','sidebar','spec')).entries %}
+    {% for entry in view(entry_type_not=('link','sidebar','spec')).entries %}
         <article>
             <h2>{{ entry.title }}</h2>
             {{ entry.body }}
@@ -11,4 +11,29 @@
             {% endif %}
         </article>
     {% endfor %}
+{% endblock %}
+
+{% block tag_browser %}
+{% if not user.is_bot %}
+{% set tags = category.tags(tag=view.spec.tag if view.spec.tag else None,tag_filter='ALL')|rejectattr('count','equalto',0)|sort(attribute='count',reverse=True) %}
+{% if tags|length > 1 or view.tags %}
+<div><h2 id="tags">Tags</h2>
+
+{% if tags|length > 10 %}
+<input type="checkbox" class="disclosure" id="disclosure-tags">
+{% endif %}
+
+<ul class="tags">
+    {% if view.tags %}
+    <li class="clear"><a rel="nofollow" href="{{view(tag=None).link(template=template)}}">Clear all</a></li>
+    {% endif %}
+    {% for tag, count in tags|sort(attribute='count',reverse=True) %}
+    <li class="{{' checked' if tag in view.tags else ''}}{{' extra' if loop.index > 9 else ''}}"><a rel="nofollow" href="{{view.tag_toggle(tag).link(template=template)}}">{{tag}}</a> ({{count}})</li>
+    {% endfor %}
+    {% if tags|length > 10 %}
+    <li class="disclosure-toggle"><a data-toggle="disclosure-tags" href="#tags">Show <span class="open">less</span><span class="closed">more...</span></a></li>
+    {% endif %}
+</ul></div>
+{% endif %}
+{% endif %}
 {% endblock %}
