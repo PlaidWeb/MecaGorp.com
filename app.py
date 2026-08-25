@@ -42,7 +42,7 @@ config = {
     },
     'timezone': 'US/Pacific',
     'cache': {
-        'CACHE_TYPE': 'memcached',
+        'CACHE_TYPE': 'MemcachedCache',
         'CACHE_DEFAULT_TIMEOUT': 86413,
         'CACHE_THRESHOLD': 500,
         'CACHE_KEY_PREFIX': 'mecagorp.com',
