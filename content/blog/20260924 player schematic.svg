@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 3230 1823" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:affinity="https://www.affinity.studio/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
-    <g transform="matrix(1,0,0,1.589286,-8.923828,-106.392857)">
-        <rect x="46" y="94" width="674" height="1064" style="fill:none;stroke:black;stroke-width:2.26px;stroke-dasharray:6.778,11.297,0,0,0,0;"/>
-        <g transform="matrix(1,0,0,0.629213,0,34.853933)">
+<svg width="100%" height="100%" viewBox="0 0 3230 1722" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:affinity="https://www.affinity.studio/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1.530807,-8.923828,-100.895845)">
+        <rect x="46" y="94" width="674" height="1064" style="fill:none;stroke:black;stroke-width:2.32px;stroke-dasharray:6.961,11.601,0,0,0,0;"/>
+        <g transform="matrix(1,0,0,0.65325,0,32.594474)">
             <text x="62px" y="140.927px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:37.5px;">Music sour<tspan x="244.373px 262.244px " y="140.927px 140.927px ">ce</tspan>s</text>
         </g>
     </g>
@@ -20,7 +20,7 @@
         </g>
     </g>
     <g transform="matrix(1,0,0,1,1769.701823,-733.508676)">
-        <path d="M600.555,1461C635.878,1461 664.555,1489.677 664.555,1525L664.555,1676C664.555,1711.323 635.878,1740 600.555,1740L211,1740C175.677,1740 147,1711.323 147,1676L147,1525C147,1489.677 175.677,1461 211,1461L600.555,1461Z" style="fill:rgb(235,235,235);stroke:rgb(31,162,87);stroke-width:7px;"/>
+        <path d="M600.555,1461C635.878,1461 664.555,1489.677 664.555,1525L664.555,1676C664.555,1711.323 635.878,1740 600.555,1740L211,1740C175.677,1740 147,1711.323 147,1676L147,1525C147,1489.677 175.677,1461 211,1461L600.555,1461Z" style="fill:rgb(235,235,235);stroke:rgb(153,70,208);stroke-width:7px;"/>
         <text x="305.57px" y="1587.915px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:50px;">Subsonic</text>
         <text x="276.505px" y="1654.321px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:50px;">aggr<tspan x="384.708px 412.369px " y="1654.321px 1654.321px ">eg</tspan>at<tspan x="486.295px 516.349px " y="1654.321px 1654.321px ">or</tspan></text>
     </g>
@@ -55,7 +55,7 @@
             <text x="272.172px" y="1536.374px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:50px;">Ripped CDs</text>
         </g>
     </g>
-    <g transform="matrix(1.052168,0,0,0.392522,-63.189147,883.500731)">
+    <g transform="matrix(1.052168,0,0,0.392522,-52.870137,853.500731)">
         <path d="M612.513,1461C641.236,1461 664.555,1523.508 664.555,1600.5C664.555,1677.492 641.236,1740 612.513,1740L199.042,1740C170.319,1740 147,1677.492 147,1600.5C147,1523.508 170.319,1461 199.042,1461L612.513,1461Z" style="fill:rgb(235,235,235);stroke:rgb(255,131,0);stroke-width:8.82px;"/>
         <g transform="matrix(0.950418,0,0,2.54763,7.288518,-2261.087329)">
             <text x="231.973px" y="1536.374px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:50px;">Pur<tspan x="304.483px 329.605px 357.022px " y="1536.374px 1536.374px 1536.374px ">cha</tspan>sed MP3s</text>
@@ -90,7 +90,7 @@
         </g>
     </g>
     <g transform="matrix(0.724867,0,0,0.743275,421.144963,-185.37551)">
-        <path d="M1542.168,636.049C1605.546,636.049 1657,686.229 1657,748.037L1657,972.012C1657,1033.82 1605.546,1084 1542.168,1084L1057.832,1084C994.454,1084 943,1033.82 943,972.012L943,748.037C943,686.229 994.454,636.049 1057.832,636.049L1542.168,636.049Z" style="fill:rgb(235,235,235);stroke:rgb(31,162,87);stroke-width:9.54px;"/>
+        <path d="M1542.168,636.049C1605.546,636.049 1657,686.229 1657,748.037L1657,972.012C1657,1033.82 1605.546,1084 1542.168,1084L1057.832,1084C994.454,1084 943,1033.82 943,972.012L943,748.037C943,686.229 994.454,636.049 1057.832,636.049L1542.168,636.049Z" style="fill:rgb(235,235,235);stroke:rgb(153,70,208);stroke-width:9.54px;"/>
         <g transform="matrix(1.379563,0,0,1.345396,-357.928098,-219.689152)">
             <text x="1007.381px" y="789.939px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:50px;">Chor<tspan x="1119.343px 1146.59px " y="789.939px 789.939px ">us</tspan> collection</text>
             <text x="1132.063px" y="856.345px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:50px;">ser<tspan x="1200.862px 1225.13px 1252.791px " y="856.345px 856.345px 856.345px ">ver</tspan></text>
@@ -138,7 +138,7 @@
             <path d="M602.394,987.46C675.688,1049.724 904.849,1220 1219,1220C1603.438,1220 1916.702,920.385 1916.702,920.385" style="fill:none;stroke:rgb(31,162,87);stroke-width:7px;"/>
         </g>
     </g>
-    <g transform="matrix(1,0,0,1,-891.356047,152.951028)">
+    <g transform="matrix(1,0,0,1,-881.037037,109.951028)">
         <rect x="1226.878" y="1489.092" width="56.47" height="10.181" style="fill:rgb(31,162,87);fill-opacity:0.09;fill-rule:nonzero;"/>
         <text x="1220.396px" y="1498.247px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:75px;">...</text>
     </g>
@@ -189,8 +189,8 @@
     </g>
     <g transform="matrix(1,0,0,1,37.239583,105.092593)">
         <g transform="matrix(1,-0,-0,1,-37.239583,-105.092593)">
-            <path d="M682.791,1516.073L636.035,1511.732L667.562,1476.931L682.791,1516.073Z" style="fill:rgb(255,131,0);"/>
-            <path d="M1153.695,958.538C1153.695,958.538 1093.94,1127.275 1029.537,1220C916.588,1382.619 738.837,1469.578 667.348,1499.548" style="fill:none;stroke:rgb(255,131,0);stroke-width:7px;"/>
+            <path d="M692.526,1490.281L646.354,1481.732L680.897,1449.923L692.526,1490.281Z" style="fill:rgb(255,131,0);"/>
+            <path d="M1153.695,958.538C1153.695,958.538 1093.94,1127.275 1029.537,1220C917.779,1380.904 748.789,1449.679 678.64,1472.428" style="fill:none;stroke:rgb(255,131,0);stroke-width:7px;"/>
         </g>
     </g>
     <defs>
