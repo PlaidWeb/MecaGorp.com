@@ -1738,14 +1738,14 @@ files = [
 
 [[package]]
 name = "publ"
-version = "0.8.16"
+version = "0.8.17"
 description = "A flexible web-based publishing framework"
 optional = false
 python-versions = "<3.15,>=3.10"
 groups = ["main"]
 files = [
-    {file = "publ-0.8.16-py3-none-any.whl", hash = "sha256:85a58c0a3287faa517373442d7057f56a79e4aeff6cc5a2a0aaf6c7a8ab3a610"},
-    {file = "publ-0.8.16.tar.gz", hash = "sha256:f0e518e8fb493cbe6694737d05773093462d71a8041bc32b5edb3efa84692def"},
+    {file = "publ-0.8.17-py3-none-any.whl", hash = "sha256:45634e044e41afc27792907bf72bd8ecc9db23e81eb606d77789811981ff2d01"},
+    {file = "publ-0.8.17.tar.gz", hash = "sha256:6135bc2971359fec24b8e9d5a2c2d826e04be8a06900d5249da0591b919e71fa"},
 ]
 
 [package.dependencies]

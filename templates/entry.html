@@ -2,6 +2,15 @@
 
 {% block title %}<title>{{category.name}}: {{ entry.title }}</title>{% endblock %}
 
+{% block opengraph %}
+<meta property="og:title" content="{{entry.title}}">
+{% if entry.summary %}
+<meta property="og:description" content="{{entry.summary(markup=False)}}">
+{% endif %}
+<meta property="og:site_name" content="MecaGorp">
+<meta property="og:type" content="webpage">
+{% endblock %}
+
 {% block content %}
     <article class="h-article">
     <h2>{{ entry.title }}</h2>
