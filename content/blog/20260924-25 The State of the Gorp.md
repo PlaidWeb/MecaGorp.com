@@ -6,6 +6,7 @@ Tag: Join the Chorus
 UUID: 7b546a06-e88a-4905-a0ab-2401492d7750
 Entry-ID: 25
 Date: 2026-09-24 14:56:04-07:00
+Summary: The current status of the MecaGorp project
 
 Hello, it's been a hot minute. I thought it'd be helpful to talk about the current state of the project and what the current plans are for its future.
 
