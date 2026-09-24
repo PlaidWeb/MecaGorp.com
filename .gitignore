@@ -221,3 +221,6 @@ index.db
 .DS_Store
 search/
 logs/
+
+
+*.af~lock~
