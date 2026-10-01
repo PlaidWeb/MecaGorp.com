@@ -1,15 +1,14 @@
 Title: Payments
-Tag: whitepaper
+Entry-type: whitepaper
 Path-Canonical: /chorus/payments
 Date: 2026-09-24 13:10:17-07:00
 UUID: 677de694-d45e-43ad-a3e6-851066ad245d
 Entry-ID: 19
+Summary: Equitably supporting artists
 
-Payments are the worst part of the streaming ecosystem and the area most subject to abuse. Global money pools that are split up on a per-stream basis encourage bot listeners and ultra-short content, and pooling payments across listeners means that disproportionate numbers of listens from single users will give an outsized influence on the payments sent to the artists they listen to, at the expense of other artists.
+Payments are the most challenging part of the streaming ecosystem and the area most subject to abuse. Global money pools that are split up on a per-stream basis encourage bot listeners and ultra-short content, and pooling payments across listeners means that disproportionate numbers of listens from single users will give an outsized influence on the payments sent to the artists they listen to, at the expense of other artists.
 
 While it's out of scope to insist on a particular payment strategy (and payments are specifically *not* a part of the protocol), this document will explain a few ideas for how listeners can fairly compensate the artists that they listen to.
-
-.....
 
 ### Support ledger
 

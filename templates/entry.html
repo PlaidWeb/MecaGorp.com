@@ -66,12 +66,4 @@
 {% endblock %}
 
 {% block entry_browser %}
-    <section>
-    <h2>{{category.name}}</h2>
-    <ul>
-        {% for entry in get_view(category=category,entry_type_not=('sidebar','link','spec'),order='title') %}
-            <li><a href="{{ entry.link }}">{{ entry.title }}</a></li>
-        {% endfor %}
-    </ul>
-    </section>
 {% endblock %}

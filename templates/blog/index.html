@@ -35,6 +35,26 @@
     {% endfor %}
 {% endblock %}
 
+        {% block sidebar_content %}
+            {% for label,entry_type,show_summary in (
+                ("Links", "link", True),
+                ) %}
+            {% set group = get_view(category=category,entry_type=entry_type,order='title') %}
+            {% if group.entries %}
+            <section>
+            <h2>{{label}}</h2>
+            <ul>
+                {%- for entry in group.entries -%}
+                <li>
+                    <a {% if entry['rel'] %}rel="{{entry.rel}}"{% endif %} href="{{entry.permalink if entry['use-permalink'] else entry.link}}">{{entry.title}}</a>{% if show_summary and entry.summary %}: {{entry.summary|strip_html}}{% endif %}
+                </li>
+                {%- endfor -%}
+            </ul></section>
+            {% endif %}
+        {% endfor %}
+
+        {% endblock %}
+
 {% block entry_browser %}
     <section>
     <h2>Recent Posts</h2>

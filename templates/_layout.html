@@ -71,7 +71,11 @@
     <nav id="sidebar">
 
         {% block sidebar_content %}
-            {% for label,entry_type in (("Information", "sidebar"), ("Links", "link")) %}
+            {% for label,entry_type,show_summary in (
+                (category.name, "", False),
+                ("Whitepapers", 'whitepaper', True),
+                ("Links", "link", True),
+                ) %}
             {% set group = get_view(category=category,entry_type=entry_type,order='title') %}
             {% if group.entries %}
             <section>
@@ -79,7 +83,7 @@
             <ul>
                 {%- for entry in group.entries -%}
                 <li>
-                    <a {% if entry['rel'] %}rel="{{entry.rel}}"{% endif %} href="{{entry.permalink if entry['use-permalink'] else entry.link}}">{{entry.title}}</a>{% if entry.summary %}: {{entry.summary|strip_html}}{% endif %}
+                    <a {% if entry['rel'] %}rel="{{entry.rel}}"{% endif %} href="{{entry.permalink if entry['use-permalink'] else entry.link}}">{{entry.title}}</a>{% if show_summary and entry.summary %}: {{entry.summary|strip_html}}{% endif %}
                 </li>
                 {%- endfor -%}
             </ul></section>
