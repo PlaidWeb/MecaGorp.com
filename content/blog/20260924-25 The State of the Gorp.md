@@ -71,7 +71,7 @@ I think the things that would be the most impactful for making progress on this 
 1. Helping with funding! Here's some of the crowdfunding platforms you can use to help most effectively:
 
     * [fluffy](https://beesbuzz.biz/) can be supported via [Ko-Fi](https://ko-fi.com/fluffycritter), [Patreon](https://patreon.com/fluffy), or [Mirlo](https://mirlo.space/sockpuppet/support)
-    * [Mirlo](https://mirlo.space/team) can be supported [on Mirlo](https://mirlo.space/team/support))
+    * [Mirlo](https://mirlo.space/team) can be supported [on Mirlo](https://mirlo.space/team/support)
     * [Fairplayer](https://fairplayer.org/) can be supported [on OpenCollective](https://opencollective.com/fairplayer)
 
 2. Providing development work! Do you have software skills? Great! Here's some relevant source repositories:
