@@ -20,7 +20,7 @@
         </g>
     </g>
     <g transform="matrix(1,0,0,1,1769.701823,-733.508676)">
-        <path d="M600.555,1461C635.878,1461 664.555,1489.677 664.555,1525L664.555,1676C664.555,1711.323 635.878,1740 600.555,1740L211,1740C175.677,1740 147,1711.323 147,1676L147,1525C147,1489.677 175.677,1461 211,1461L600.555,1461Z" style="fill:rgb(235,235,235);stroke:rgb(153,70,208);stroke-width:7px;"/>
+        <path d="M600.555,1461C635.878,1461 664.555,1489.677 664.555,1525L664.555,1676C664.555,1711.323 635.878,1740 600.555,1740L211,1740C175.677,1740 147,1711.323 147,1676L147,1525C147,1489.677 175.677,1461 211,1461L600.555,1461Z" style="fill:rgb(235,235,235);stroke:rgb(31,162,87);stroke-width:7px;"/>
         <text x="305.57px" y="1587.915px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:50px;">Subsonic</text>
         <text x="276.505px" y="1654.321px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:50px;">aggr<tspan x="384.708px 412.369px " y="1654.321px 1654.321px ">eg</tspan>at<tspan x="486.295px 516.349px " y="1654.321px 1654.321px ">or</tspan></text>
     </g>
