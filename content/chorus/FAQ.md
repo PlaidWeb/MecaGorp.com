@@ -4,10 +4,17 @@ Date: 2026-08-17 14:18:45-07:00
 UUID: b49b1622-d11d-4196-9c8a-f763a3dd4ebe
 Entry-ID: 10
 Path-Canonical: /chorus/faq
+show-toc: 1
 
 Answers to some of the questions people have about this project.
 
 .....
+
+### What is Chorus?
+
+Chorus is a format for musicians and music publishing platforms to directly provide music and its metadata to on-demand streaming applications.
+
+The intention is that a musician should only need to upload their music to one place, and then it becomes available to any number of playback sources, including on-demand streaming, discovery feeds, and Internet radio stations.
 
 ### Why this format?
 
@@ -21,7 +28,7 @@ The Chorus format encapsulates a collection of music, which can be browsed, revi
 
 This format is intended to be easy to publish and to parse, without any guesswork about what anything actually means. Musicians shouldn't have to sign up for every new distributed platform that springs up, when those platforms could subscribe to a common format as one potential source for music. They should be able to just add it as a format to publish their music to the web in a way that is, hopefully, easy to adapt into other ecosystems.
 
-### Why not use RSS/Atom?
+#### Why not use RSS/Atom?
 
 There are several reasons that RSS/Atom are not suitable protocols for this purpose. (Going forward I will refer to both protocols as simply "RSS.")
 
@@ -33,7 +40,7 @@ Finally, since RSS is also used for many other things, such as blogs and announc
 
 None of these issues are insurmountable, and if consensus can be built on an extension to RSS that addresses these issues, there is no reason not to support that instead. But RSS in its present form does not provide a standard mechanism for representing a collection of music, and clients need to be built on whatever emerges. Having an RSS enclosure does not magically make everything agree on how things should work, and the RSS specification is vague enough that there are *massive* compatibility problems between implementations even for basic things like blogs and podcasts.
 
-### Why not ActivityPub?
+#### Why not ActivityPub?
 
 There are several ActivityPub-based music federation projects underway as well. ActivityPub is a great format for pushing out notifications of new content to be sure, and Chorus could indeed be implemented as a layer on top of ActivityPub. However, the promise of ActivityPub is having a universal client/server for realtime updates, and similarly to RSS, is not suitable for providing a browseable collection of specifically-structured data. Most ActivityPub implementations are also oriented towards the idea of two-way communication between client and server, and this is anathema to the notion of a collection being published to a static hosting provider or similar, and also requires a lot of active (and fragile) state to be maintained between the two.
 
@@ -41,21 +48,11 @@ Any implementation of a music collection on top of ActivityPub would still have 
 
 ActivityPub itself also doesn't solve the issues of interoperability between different implementations; notably, existing ActivityPub implementations such as Bandwagon, Funkwhale, and PeerTube which all live in the same general problem domain still cannot meaningfully share data with one another, as they speak different vocabularies. Even different versions of the same ActivityPub implementation are not guaranteed to interoperate with one another.
 
-### What about [OpenSubsonic](https://opensubsonic.netlify.app/)?
-
-OpenSubsonic is a pretty good protocol for connecting players to collections! However, it is really built around there being a single collection that's being provided to a user's player, and most players do not support aggregating across multiple OpenSubsonic collections.
-
-What makes a lot of sense is having a single OpenSubsonic collection server that aggregates other sources, including Chorus (acting as a receiver) and other OpenSubsonic implementations, providing a unified library to the user's endpoint.
-
-In this world, Chorus connects collections to sources, and OpenSubsonic connects players to collections.
-
-Basically, OpenSubsonic is solving a different part of the stack, and it absolutely complements Chorus. The two protocols can work together to form a greater whole.
-
-### Why not microformats?
+#### Why not [microformats](https://microformats.org/)?
 
 While microformats are a very nice means of embedding metadata into HTML documents without requiring so-called "sidecar" formats, the unfortunate reality is that many content platforms these days are not serving up static HTML; instead they are built as app-style frontends which require Javascript to fetch the actual page content using frameworks like ReactJS and Vue, and while it would be really nice if we were still in a server-side-rendering-first web, that is no longer the case.
 
-Additionally, parsing and presenting microformats can be a lot more complicated even in a pure-static HTML-based ecosystem, and it doesn't provide any greater efficiency than linking to a sidecar file or endpoint.
+Additionally, parsing and presenting microformats can be a lot more complicated than expected even in a pure-static HTML-based ecosystem, and it doesn't provide any greater efficiency than linking to a sidecar file or endpoint.
 
 As such, while microformats are a very nice approach in theory, the practical concerns make it not very compelling for this use case.
 
@@ -65,7 +62,7 @@ Microformats also tend to make use of the page URL as the identifier, which adds
 
 Also, since every entity is mapped to a URL, there is no standard way to present content that does not map to a specific webpage.
 
-### Why not JSON-LD?
+#### Why not JSON-LD?
 
 JSON-LD is meant to work similarly to microformats, with a large JSON blob embedded into a webpage. While this works well for discovery, it has major performance issues for actual data ingestion, and implications for the performance of the website as a whole. The choices are either to embed a complete catalog into the webpage for the root entity (which slows down every single webpage retrieval unnecessarily), or requires linking the data across webpages per entity and having consumers do a full tree walk, which in turn requires retrieving basically every webpage on a site in order to get the latest information, as there is no standard mechanism for indicating whether a dependency has changed.
 
@@ -73,13 +70,9 @@ JSON-LD is also far less efficient than microformats, as the embedding structure
 
 Additionally, JSON-LD uses the entity's URL as its identifier, which vastly complicates things when it comes to changing the URL of an item, which can happen when a webpage gets reorganized or if an item changes its name.
 
-### What about [missing feature]?
-
-The specification in its current form is certainly not the final word, and can and should be extended as use cases are uncovered. Every attempt has been made to keep it extensible and flexible, but of course there will be things that are missing as well.
-
 ### Why should something use Chorus instead of anything else?
 
-It shouldn't! Different formats are good at different things. Chorus is meant to live alongside other protocols, and it purposefully excludes functionality other than publishing music. There is no intention to add any functionality like real-time status posts, blog entries, or podcasts, all of which are served better by social feed formats such as RSS and Atom.
+It shouldn't! Different formats and protocols are good at different things. Chorus is meant to live alongside other protocols, and it purposefully excludes functionality other than publishing music. There is no intention to add any functionality like real-time status posts, blog entries, or podcasts, all of which are served better by social feed formats such as RSS and Atom.
 
 It is also not meant to be an encyclopedic compendium of all music; this is not a replacement to MusicBrainz, for example, although the end-user's software interoperating with MusicBrainz as a source of ground truth for metadata is certainly desirable.
 
@@ -91,6 +84,29 @@ Nothing about this is exclusive; it's just meant to be simpler to support on bot
 
 Don't think "instead of," but "in addition to."
 
+#### What about [openSubsonic](https://opensubsonic.netlify.app/)?
+
+openSubsonic is a pretty good protocol for connecting players to collections! However, it is really built around there being a single collection that's being provided to a user's player, and most players do not support aggregating across multiple OpenSubsonic collections.
+
+What makes a lot of sense is having a single OpenSubsonic collection server that aggregates other sources, including Chorus (acting as a receiver) and other OpenSubsonic implementations, providing a unified library to the user's endpoint.
+
+In this world, Chorus connects collections to sources, and OpenSubsonic connects players to collections.
+
+Basically, OpenSubsonic is solving a different part of the stack, and it absolutely complements Chorus. The two protocols can work together to form a greater whole.
+
+#### What about Shoutcast/Icecast/AzuraCast/etc.?
+
+There is a common confusion when it comes to what is meant by "streaming." The two most common uses are:
+
+1. Having a synchronous, possibly-curated live stream that comes from a single source and is broadcast to multiple listeners simultaneously (a "radio station")
+2. Having the ability for users to peruse a collection and stream the music on-demand rather than having to download and acquire it up-front (a "streaming platform")
+
+Shoutcast and Icecast refer to the first usage, while Chorus is primarily meant to enable the second usage.
+
+However, there *is* a use for Chorus in the first case: delivering new content to live stream providers.
+
+For example, [The Indie Beat](https://theindiebeat.fm/) has a partnership with [Bandwagon](https://bandwagon.fm/) to receive new releases to start promoting through their live stream. However, this partnership is based on a fixed content-delivery mechanism that is agreed to by Bandwagon, and requires musicians to upload their music to Bandwagon to be included. The promise of Chorus is that a musician would be able to provide their feed to The Indie Beat, which would then be able to subscribe to new releases and integrate them into their programming automatically (or with a basic vetting process), while preserving all of the metadata that is necessary for the operation of the radio station.
+
 ### What about access control? (paid access, subscriptions, etc.)
 
 Access control is generally better-served at a different level on a content delivery stack than the end format.
@@ -99,6 +115,10 @@ The intention is that a Chorus collection, by default, provides that which the m
 
 The hope is that there will eventually be a standard mechanism for allowing receivers to manage access tokens in order to fetch full-quality versions or bonus content and the like (with the same mechanism preventing someone from simply republishing the underlying media URLs unprotected). This can take many forms, such as [standard HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Authentication) (particularly bearer tokens) or something OAuth-based, but the ideal long-term goal is that people would use this as a mechanism to find music to purchase and download into their own local collections.
 
-That local collection could then be served up in turn as a private Chorus collection; there is some discussion about how that might work in the [receiver document](receiver.md#private).
-
 The overall goal of this project is to turn listeners into collectors. The existence of music should not be contingent on the long-term durability of its hosting provider.
+
+### What about [missing feature]?
+
+The specification in its current form is certainly not the final word, and can and should be extended as use cases are uncovered. Every attempt has been made to keep it extensible and flexible, but of course there will be things that are missing as well.
+
+If you would like to propose a refinement, [the specification's GitHub repository](https://github.com/PlaidWeb/Chorus) is a good place to do it.
