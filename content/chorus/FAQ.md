@@ -5,6 +5,7 @@ UUID: b49b1622-d11d-4196-9c8a-f763a3dd4ebe
 Entry-ID: 10
 Path-Canonical: /chorus/faq
 show-toc: 1
+Last-Modified: 2026-11-02 13:19:24-08:00
 
 Answers to some of the questions people have about this project.
 

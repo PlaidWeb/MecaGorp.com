@@ -1,0 +1,10 @@
+{% extends '/index.html' %}
+
+{% block sidebar_content %}
+    <h2>Recent blog posts</h2>
+    <ul>
+        {% for entry in view(category='blog',entry_type='',count=5).entries %}
+            <li><a href="{{ entry.link }}">{{ entry.title }}</a> <span>({{entry.date.format('YYYY/MM/DD')}}, {{entry.date.humanize()}})</span></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,14 +1,16 @@
 Title: Payments
-Entry-type: whitepaper
-Path-Canonical: /chorus/payments
+Path-Canonical: /whitepapers/payments
 Date: 2026-09-24 13:10:17-07:00
 UUID: 677de694-d45e-43ad-a3e6-851066ad245d
 Entry-ID: 19
 Summary: Equitably supporting artists
+Last-Modified: 2026-11-02 17:22:15-08:00
 
 Payments are the most challenging part of the streaming ecosystem and the area most subject to abuse. Global money pools that are split up on a per-stream basis encourage bot listeners and ultra-short content, and pooling payments across listeners means that disproportionate numbers of listens from single users will give an outsized influence on the payments sent to the artists they listen to, at the expense of other artists.
 
-While it's out of scope to insist on a particular payment strategy (and payments are specifically *not* a part of the protocol), this document will explain a few ideas for how listeners can fairly compensate the artists that they listen to.
+While it's out of scope to insist on a particular payment strategy (and payments are specifically *not* a part of the Chorus protocol), this document will explain a few ideas for how listeners can fairly compensate the artists that they listen to.
+
+.....
 
 ### Support ledger
 
@@ -28,4 +30,4 @@ This strategy could also be used to allow for things like community support or a
 
 ### Implementation notes
 
-The recorded duration should be based on actual play time instead of the reported duration in the collection; this is to avoid things like collections overreporting the length of the track, or allowing people to game the system by repeatedly listening to just a few seconds of a track. This also allows for prorating based on partial listens.
+The recorded duration should be based on actual play time instead of the reported duration in the collection; this is to avoid things like collections overreporting the length of the track, or allowing people to game the system by repeatedly listening to just a few seconds of a track, or filling their feed with 10-second songlets. This also allows for prorating based on partial listens or the length of a track.

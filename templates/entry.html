@@ -31,7 +31,16 @@
             by {% if entry['author-url'] %}<a href="{{ entry['author-url'] }}">{% endif %}
                 {{ entry.author }}
             {% if entry['author-url'] %}</a>{% endif %}
-            {% endif %}
+        {% endif %}
+        {% if entry.last_modified > entry.date %}
+            <br>
+            Last modified <time class="dt-published" datetime="{{entry.last_modified.isoformat()}}">
+            <span class="date">{{entry.last_modified.format('MMMM D, YYYY')}}</span> at
+            <span class="time">{{entry.last_modified.format('hh:mm A Z')}}</span>
+            <span class="ago">({{entry.last_modified.humanize()}})</span>
+            </time>
+        {% endif %}
+
         {% if entry.tags %}
         <ul class="tags">
             {%- for tag in entry.tags -%}

@@ -189,6 +189,7 @@ main {
 
 #sidebar {
     grid-area: sidebar;
+    padding-right: 1ex;
 
     section {
         margin-bottom: 1em;
@@ -202,6 +203,10 @@ main {
             margin: 0 0 0 1em;
             padding: 0;
             text-indent: 1em hanging;
+            span {
+                font-size: small;
+                font-style: italic;
+            }
         }
     }
 

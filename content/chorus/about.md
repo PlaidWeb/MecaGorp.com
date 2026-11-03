@@ -12,7 +12,7 @@ Chorus is a lightweight format for publishing music for streaming in a platform-
 
 Music discovery, consumption, and streaming are locked down by large corporations that have made a mess of things. The streaming providers have to cater to the whims of the major record labels, and have created a two-tier system where neither discovery nor payments are even remotely fair. Independent musicians are hit hardest by this, as they have to pay money to play a game that is stacked against them, and what little listenership they get is largely divvied up to the major labels. The specific payment strategy that's used has also led to a glut of minimum-effort content and AI slop and bot-driven streaming that tries to game the system, hurting everyone, big and small alike.
 
-There are several disparate attempts to build a better world for musicians, but many of them are built on protocols that were not designed for this use case in mind. ActivityPub and RSS were simply not designed with the specific needs of distribution and discovery of musical content, and most of the existing attempts are built on top of those.
+There are several disparate attempts to build a better world for musicians, but many of them are built on protocols that were not designed for this use case in mind. ActivityPub and RSS are poor fits for the specific needs of distribution and discovery of musical content, and most of the existing attempts are built on top of those.
 
 The Chorus format is a lightweight, web-native protocol that enables an ecosystem of independent music streaming, directly connecting musicians with listeners and removing the entrenched music industry from the equation. This allows us to build a better future for independent music on the Internet while reducing the headache for musicians.
 
@@ -25,6 +25,8 @@ The pieces of the puzzle to fit together are:
 * Receiver: something that receives music from the network and makes it available to listeners; it can be further divided into:
     * Collection: a bunch of music
     * Player: an application that can play the music in the collection
+
+Please see the [whitepapers](/whitepapers/), particularly on the [ecosystem design](32), for more information about how this would work at a high level.
 
 ### Who's involved?
 
