@@ -73,6 +73,7 @@
         {% block sidebar_content %}
             {% for label,entry_type,show_summary in (
                 (category.name, "", False),
+                ("Implementation notes", 'notes', False),
                 ("Whitepapers", 'whitepaper', True),
                 ("Links", "link", True),
                 ) %}

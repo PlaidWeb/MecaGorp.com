@@ -118,6 +118,12 @@ The hope is that there will eventually be a standard mechanism for allowing rece
 
 The overall goal of this project is to turn listeners into collectors. The existence of music should not be contingent on the long-term durability of its hosting provider.
 
+### What about analytics and listener tracking?
+
+First, consider why you want to actually get these sorts of analytics.
+
+If you really need to track the source of individual listeners and subscribers, nothing prevents you from adding tracking tokens (`utm_source`, `si`, etc.) to the feed URL and plumbing them through to the `url` and/or media `src` attributes. Keep in mind that such data is easy to manipulate or strip off entirely, and an obsession on metrics and analytics may not be the right way to go about performing acts of creation.
+
 ### What about [missing feature]?
 
 The specification in its current form is certainly not the final word, and can and should be extended as use cases are uncovered. Every attempt has been made to keep it extensible and flexible, but of course there will be things that are missing as well.

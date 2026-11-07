@@ -217,10 +217,12 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 .sessionkey
+
+# Publ
 index.db
-.DS_Store
 search/
 logs/
 
-
+# macOS
+.DS_Store
 *.af~lock~
