@@ -8,6 +8,11 @@
     {%- endif -%}
 {%- endblock -%}
 
+{% block header_links %}
+    {{ super() }}
+    <link rel="canonical" href="{{ entry.link(absolute=True,_scheme='https') }}">
+{% endblock %}
+
 {% block opengraph %}
 <meta property="og:title" content="{{entry.title}}">
 {% if entry.summary %}
