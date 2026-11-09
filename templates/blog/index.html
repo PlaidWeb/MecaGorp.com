@@ -17,7 +17,7 @@
                         <span class="p-name">{{ entry.author }}</span>
                     {% if entry['author-url'] %}</a>{% endif %}
                     {% endif %}</span>
-                {% if entry.tags %}
+                {% if not user.is_bot and entry.tags %}
                 <ul class="tags">
                     {%- for tag in entry.tags -%}
                     <li><a class="p-category" rel="tag" href="{{entry.archive(tag=tag)}}">{{tag}}</a></li>
