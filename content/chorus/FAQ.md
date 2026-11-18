@@ -5,7 +5,7 @@ UUID: b49b1622-d11d-4196-9c8a-f763a3dd4ebe
 Entry-ID: 10
 Path-Canonical: /chorus/faq
 show-toc: 1
-Last-Modified: 2026-11-02 13:19:24-08:00
+Last-Modified: 2026-11-18 13:52:10-08:00
 
 Answers to some of the questions people have about this project.
 
@@ -99,7 +99,7 @@ Basically, OpenSubsonic is solving a different part of the stack, and it absolut
 
 There is a common confusion when it comes to what is meant by "streaming." The two most common uses are:
 
-1. Having a synchronous, possibly-curated live stream that comes from a single source and is broadcast to multiple listeners simultaneously (a "radio station")
+1. Having a synchronous, possibly-curated live stream that comes from a single source and is broadcast to multiple listeners simultaneously (a "radio station", also more generally known as a "linear stream")
 2. Having the ability for users to peruse a collection and stream the music on-demand rather than having to download and acquire it up-front (a "streaming platform")
 
 Shoutcast and Icecast refer to the first usage, while Chorus is primarily meant to enable the second usage.
